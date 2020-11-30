@@ -1,0 +1,11 @@
+#1 使用BEncode解析BitTorrent文件 
+#2 链接Tracker服务器，获取peers列表
+#3 与peer通信，获取缺失的块文件
+    #peer下载所需文件块
+        #如何确认缺失的文件块以及对应的peer是否存在
+    #自己的客户端作为种子传递者，如何接受他人的请求
+#4 并发优化问题
+
+Peer连接协议
+#1 handshake
+#2 解析handshake

@@ -1,0 +1,26 @@
+Info :描述下载内容的信息,是一个字典.有两种可能,一种是"单文件"模式:当BitTorrent只下载一个文件的时候使用.另一种是"多文件"模式,是在下载多个内容的时候使用.两种情况下Info各有不同.
+
+      单文件模式:
+
+length :整数,指文件的大小.
+md5sum :(可选),字符串,含有32字节md5校验码.BitTorrent没有使用MD5而是使用了SHA1作为自已的签名算法.这是为其他P2P软件兼容而设置的可选内容.
+name :字符串,这是下载文件的名字,纯粹是建议.
+piece length :整数,是BitTorrent文件块的大小.
+pieces :字符串,连续的存放着所有块的SHA1杂凑值,每一个文件块的杂凑值为20字节.
+
+      多文件模式:
+
+files: 一个由字典组成的列表,每个字典表示一个文件,字典的键值有如下内容:
+    length :整数,指当前文件的大小.
+    md5sum :(可选),字符串,同单文件模式,指当前文件.
+    path :由字符串组成的列表,每个列表元素指一个路径名中的一个目录或文件名.比如说:"l3:abc3:abc:6abc.txte",指文件路径"abc/abc/abc.txt".
+name :字符串,BitTorrent下载路径中最上层的目录名
+piece length :整数,是BitTorrent文件块的大小.
+pieces :字符串,连续的存放着所有块的SHA1杂凑值,每一个文件块的杂凑值为20字节.
+
+announce :字符串,指向tracker的URL.
+announce-list :(可选),字典,这是一个对官方协议的扩展,支持"多Tracker".
+creation date :(可选),整数,创建日期(UNIX创世纪格式:1970-1-1日00:00UTC到当时的秒数)
+comment :(可选),字符串,注释
+created by :可选,字符串,创建此.torrent文件的BT下载端程序名和版本号
+encoding :BitComet对Metafile的扩展，一般用来指出不使用utf-8而使用gbk.
